@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  include Response
+  include Response, ExceptionHandler
   before_action :set_article, only: [:show, :update, :destroy]
 
   def index
@@ -13,7 +13,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    Article.create(items_params)
+    Article.create!(items_params)
     json_response({message: 'New Article Added'}, :created)
   end
 
