@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   end
 
   post '/account/login',to: 'authenticate#store'
+  post '/account/register',to: 'users#store'
 end

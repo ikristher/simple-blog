@@ -7,7 +7,7 @@ RSpec.describe 'Articles API', type: :request do
   let(:user) { create(:user) }
   let(:headers) { valid_headers }
   let(:article) do
-    { title:'this is another article', 'content':'I am simple content for your enjoyment' }.to_json
+    { title:'this is another article', content:'I am simple content for your enjoyment' }.to_json
   end
   describe 'GET /articles' do
     before { get '/articles' }

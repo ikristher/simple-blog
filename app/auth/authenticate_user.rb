@@ -1,5 +1,5 @@
 class AuthenticateUser
-  # include ExceptionHandler
+  include ExceptionHandler
   def initialize(email, password)
     @email = email
     @password = password
