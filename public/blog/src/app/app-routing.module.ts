@@ -4,6 +4,7 @@ import { HomeComponent } from "./home/home.component";
 import { LoginComponent} from "./login/login.component";
 import { ArticleComponent} from './article/article.component'
 import {CreateArticleComponent} from "./create-article/create-article.component";
+import {UpdateArticleComponent} from "./update-article/update-article.component";
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'articles/:id',
     component: ArticleComponent,
+  },
+  {
+    path: 'articles/:id/edit',
+    component: UpdateArticleComponent,
   },
   {
     path: 'account/login',

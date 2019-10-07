@@ -8,6 +8,7 @@ body {
   min-height: 100%;
   font-family: 'Poppins', sans-serif;
   background: #f9f9f9;
+  font-size: 16px;
 }
 
 .container {
@@ -29,6 +30,7 @@ a {
   border: none;
   border-radius: 25px;
   padding: 0.5rem 2rem;
+  margin: 0 1rem;
   color: white;
   &:focus {
     outline: none;
@@ -44,4 +46,20 @@ a {
       background: darken(#cc1e00,5);
     }
   }
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+.form-control {
+  &:focus {
+    outline: none;
+  }
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  min-height: 32px;
+  font-size: 1em;
+  font-family: "Poppins", Sans-Serif;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
 }

@@ -10,6 +10,7 @@ import { ArticleComponent } from './article/article.component';
 import { DateFnsModule } from 'ngx-date-fns';
 import { CreateArticleComponent } from './create-article/create-article.component';
 import {FormsModule} from "@angular/forms";
+import { UpdateArticleComponent } from './update-article/update-article.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {FormsModule} from "@angular/forms";
     HomeComponent,
     LoginComponent,
     ArticleComponent,
-    CreateArticleComponent
+    CreateArticleComponent,
+    UpdateArticleComponent
   ],
   imports: [
     BrowserModule,

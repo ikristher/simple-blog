@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ArticlesService} from "../services/articles.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-create-article',
@@ -6,10 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-article.component.scss']
 })
 export class CreateArticleComponent implements OnInit {
-
-  constructor() { }
+  article = {
+    title: '',
+    content: ''
+  }
+  constructor(private service: ArticlesService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  submitForm() {
+    this.service.create(this.article).then(response => {
+      alert('New Article Added')
+      this.router.navigate(['/'])
+    })
   }
 
 }

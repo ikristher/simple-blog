@@ -11,7 +11,6 @@ import {Observable} from "rxjs";
 })
 export class ArticleComponent implements OnInit {
   article;
-
   constructor(private service: ArticlesService, private route: ActivatedRoute, private router: Router) {
     this.article = service.get(route.snapshot.params.id).then(res => this.article = res)
   }

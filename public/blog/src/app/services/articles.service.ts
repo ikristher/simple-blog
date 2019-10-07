@@ -17,14 +17,13 @@ export class ArticlesService {
   get(id) {
     return this.http.get('api/articles/' + id).toPromise()
   }
-
-  create(params) {
-    return this.http.post('api/articles/', {options: {params}}).toPromise()
-  }
-
   update(id, params) {
-    return this.http.put('api/articles/' + id, {options: {params}}).toPromise()
+    return this.http.put('api/articles/' + id, params).toPromise()
   }
+  create(params) {
+    return this.http.post('api/articles/', params).toPromise()
+  }
+
 
   delete(id) {
     return this.http.delete('api/articles/' + id).toPromise()

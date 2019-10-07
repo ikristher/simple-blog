@@ -1,10 +1,10 @@
 class ArticlesController < ApplicationController
   include Response, ExceptionHandler
   before_action :set_article, only: [:show, :update, :destroy]
-  before_action :authorize_request, only: [:create, :update, :destroy]
+  # before_action :authorize_request, only: [:create, :update, :destroy]
 
   def index
-    @articles = Article.all
+    @articles = Article.order(created_at: :desc).all
     json_response(@articles)
   end
 
