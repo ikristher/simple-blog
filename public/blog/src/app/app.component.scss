@@ -1,0 +1,32 @@
+.site-header {
+  width: 100%;
+  background: #2e6cff;
+  color: white;
+  margin-bottom: 1rem;
+  &__navigation {
+    display: flex;
+    align-items: center;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 240px 720px;
+  }
+}
+.site-title {
+  font-size: 1.5rem;
+}
+.navigation {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 1rem;
+    &:hover {
+      color: #65cca7;
+    }
+  }
+}
+
