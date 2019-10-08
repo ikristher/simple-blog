@@ -8,7 +8,7 @@ class AuthenticateUser
   attr_reader :email, :password
   def authenticate
     user = User.find_by(email:email)
-    throw ExceptionHandler::AuthenticationError unless user && user.authenticate(@password)
+    raise ExceptionHandler::AuthenticationError unless user && user.authenticate(@password)
 
     return JsonWebToken.encode(user_id: user.id)
   end

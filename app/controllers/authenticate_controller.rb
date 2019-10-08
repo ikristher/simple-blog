@@ -5,8 +5,8 @@ class AuthenticateController < ApplicationController
   def store
     auth = AuthenticateUser.new(params[:email], params[:password])
     token = auth.authenticate()
-
     return json_response( { token:token })
+
   end
 
 end

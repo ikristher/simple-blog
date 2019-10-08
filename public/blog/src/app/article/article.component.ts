@@ -3,6 +3,7 @@ import {ArticlesService} from "../services/articles.service";
 import {ActivatedRoute} from "@angular/router";
 import {Router} from "@angular/router";
 import {Observable} from "rxjs";
+import {AuthService} from "../services/auth.service";
 
 @Component({
   selector: 'app-article',
@@ -11,7 +12,7 @@ import {Observable} from "rxjs";
 })
 export class ArticleComponent implements OnInit {
   article;
-  constructor(private service: ArticlesService, private route: ActivatedRoute, private router: Router) {
+  constructor(private service: ArticlesService, private route: ActivatedRoute, private router: Router, auth: AuthService) {
     this.article = service.get(route.snapshot.params.id).then(res => this.article = res)
   }
 
@@ -22,7 +23,7 @@ export class ArticleComponent implements OnInit {
     const response = confirm("Are you sure you want to delete article?")
 
     if(response === true){
-      this.service.delete(this.article.id).then(response => {
+      this.service.delete(this.article.id).subscribe(response => {
         alert("Article deleted!")
         this.router.navigate(['']).then()
       })

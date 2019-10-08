@@ -1,0 +1,12 @@
+<form name="article">
+  <h1>Edit Article</h1>
+  <div class="form-group">
+    <label for="">Title</label>
+    <input type="text" class="form-control" [(ngModel)]="article.title" name="title">
+  </div>
+  <div class="form-group">
+    <label for="">Content</label>
+    <textarea class="form-control" rows="15" [(ngModel)]="article.content" name="content"> </textarea>
+  </div>
+  <button class="button" (click)="update()">Submit</button>
+</form>

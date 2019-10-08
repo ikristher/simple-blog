@@ -18,7 +18,7 @@ export class CreateArticleComponent implements OnInit {
   }
 
   submitForm() {
-    this.service.create(this.article).then(response => {
+    this.service.create(this.article).subscribe(response => {
       alert('New Article Added')
       this.router.navigate(['/'])
     })

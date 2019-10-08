@@ -1,5 +1,6 @@
 module ExceptionHandler
     extend ActiveSupport::Concern
+    include ActiveSupport::Rescuable
 
     class AuthenticationError < StandardError; end
     class MissingToken < StandardError; end
@@ -8,8 +9,8 @@ module ExceptionHandler
     included do
       rescue_from ActiveRecord::RecordInvalid, :with=> :unprocessable_entity
       rescue_from ExceptionHandler::AuthenticationError, :with=> :unauthorized_request
-      rescue_from ExceptionHandler::MissingToken, :with=> :unprocessable_entity
-      rescue_from ExceptionHandler::InvalidToken, :with=> :unprocessable_entity
+      rescue_from ExceptionHandler::MissingToken, :with=> :forbidden
+      rescue_from ExceptionHandler::InvalidToken, :with=> :forbidden
 
       rescue_from ActiveRecord::RecordNotFound do |e|
         json_response({message: e.message}, :not_found)
@@ -28,6 +29,11 @@ module ExceptionHandler
 
     # JSON response with message; Status code 401 - Unauthorized
     def unauthorized_request(e)
-      json_response({ message: e.message }, :unauthorized)
-      end
+
+      json_response({ message: 'Unauthorized' }, :unauthorized)
     end
+    def forbidden(e)
+
+      json_response({ message: 'You are not allowed to consume this resource' }, :forbidden)
+    end
+end
